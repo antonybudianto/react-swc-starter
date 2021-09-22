@@ -1,9 +1,12 @@
 const path = require("path");
+const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+
+const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
   stats: "minimal",
   devServer: {
-    hot: false,
+    hot: true,
     static: {
       directory: path.join(__dirname, "public"),
     },
@@ -11,11 +14,12 @@ module.exports = {
     port: 9000,
   },
   entry: {
-    web: __dirname + "/src/index.js",
+    web: path.join(__dirname, "/src/index.js"),
   },
   output: {
-    path: __dirname + "/public",
+    path: path.join(__dirname, "/public"),
   },
+  plugins: [isDevelopment && new ReactRefreshPlugin()].filter(Boolean),
   module: {
     rules: [
       {

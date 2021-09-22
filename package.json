@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "npm run serve",
-    "serve": "webpack serve --mode=development",
+    "serve": "NODE_ENV=development webpack serve --mode=development",
     "watch": "webpack --mode=development --watch",
     "build": "webpack --mode=production"
   },
@@ -14,9 +14,11 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@swc/cli": "0.1.49",
-    "@swc/core": "1.2.82",
-    "swc-loader": "0.1.14",
+    "react-refresh": "0.10.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.1",
+    "@swc/cli": "0.1.50",
+    "@swc/core": "1.2.89",
+    "swc-loader": "0.1.15",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.2.1"
