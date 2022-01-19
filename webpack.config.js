@@ -13,8 +13,11 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".wasm"],
+  },
   entry: {
-    web: path.join(__dirname, "/src/index.js"),
+    web: path.join(__dirname, "/src/index.tsx"),
   },
   output: {
     path: path.join(__dirname, "/public"),
@@ -23,8 +26,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.(t|j)sx?$/,
+        exclude: /(node_modules)/,
         use: {
           loader: "swc-loader",
         },
